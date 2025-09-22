@@ -5,6 +5,7 @@ export interface Question {
   correctAnswer: number;
   category: string;
   explanation?: string;
+  rarity: 'common' | 'rare' | 'legendary';
 }
 
 export interface QuizState {

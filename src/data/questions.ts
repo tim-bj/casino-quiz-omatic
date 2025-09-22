@@ -8,7 +8,8 @@ export const questions: Question[] = [
     options: ["2", "3", "4", "5"],
     correctAnswer: 1,
     category: "Introducció",
-    explanation: "Un ordinador pot realitzar 3 tipus d'operacions: aritmètiques bàsiques, lògiques (comparar valors) i emmagatzematge/recuperació d'informació."
+    explanation: "Un ordinador pot realitzar 3 tipus d'operacions: aritmètiques bàsiques, lògiques (comparar valors) i emmagatzematge/recuperació d'informació.",
+    rarity: 'common'
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 2,
     category: "Introducció",
-    explanation: "Un algorisme és la descripció exacta i sense ambigüitats de la seqüència de passos elementals per resoldre un problema determinat."
+    explanation: "Un algorisme és la descripció exacta i sense ambigüitats de la seqüència de passos elementals per resoldre un problema determinat.",
+    rarity: 'common'
   },
 
   // Llenguatges de programació
@@ -31,7 +33,8 @@ export const questions: Question[] = [
     options: ["Assembly", "C", "Codi màquina", "Java"],
     correctAnswer: 2,
     category: "Llenguatges",
-    explanation: "El codi màquina és el llenguatge de baix nivell format per uns i zeros (codi binari) que entén directament el microprocessador."
+    explanation: "El codi màquina és el llenguatge de baix nivell format per uns i zeros (codi binari) que entén directament el microprocessador.",
+    rarity: 'common'
   },
   {
     id: 4,
@@ -44,7 +47,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     category: "Llenguatges",
-    explanation: "Cada instrucció en assemblador equival a una instrucció en llenguatge màquina, utilitzant paraules nemotècniques."
+    explanation: "Cada instrucció en assemblador equival a una instrucció en llenguatge màquina, utilitzant paraules nemotècniques.",
+    rarity: 'rare'
   },
   {
     id: 5,
@@ -52,7 +56,8 @@ export const questions: Question[] = [
     options: ["1989", "1991", "1993", "1995"],
     correctAnswer: 1,
     category: "Llenguatges",
-    explanation: "Python va ser creat per Guido van Rossum l'any 1991, amb una filosofia de disseny que busca llegibilitat en el codi."
+    explanation: "Python va ser creat per Guido van Rossum l'any 1991, amb una filosofia de disseny que busca llegibilitat en el codi.",
+    rarity: 'common'
   },
   {
     id: 6,
@@ -65,7 +70,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     category: "Llenguatges",
-    explanation: "Java és multiplataforma, el que significa que un programa compilat en Java pot ser executat en diferents sistemes operatius."
+    explanation: "Java és multiplataforma, el que significa que un programa compilat en Java pot ser executat en diferents sistemes operatius.",
+    rarity: 'rare'
   },
 
   // Assembladors i intèrprets
@@ -80,7 +86,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     category: "Compiladors",
-    explanation: "Un compilador és un programari que tradueix el codi font escrit en un llenguatge d'alt nivell a codi executable per l'ordinador."
+    explanation: "Un compilador és un programari que tradueix el codi font escrit en un llenguatge d'alt nivell a codi executable per l'ordinador.",
+    rarity: 'common'
   },
   {
     id: 8,
@@ -93,7 +100,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     category: "Compiladors",
-    explanation: "Un compilador genera un fitxer de codi objecte, mentre que l'intèrpret tradueix i executa directament sense generar cap fitxer intermig."
+    explanation: "Un compilador genera un fitxer de codi objecte, mentre que l'intèrpret tradueix i executa directament sense generar cap fitxer intermig.",
+    rarity: 'legendary'
   },
 
   // Fases de desenvolupament
@@ -103,7 +111,8 @@ export const questions: Question[] = [
     options: ["3", "4", "5", "6"],
     correctAnswer: 1,
     category: "Desenvolupament",
-    explanation: "Hi ha 4 fases principals: Anàlisi, Disseny, Implementació i Documentació."
+    explanation: "Hi ha 4 fases principals: Anàlisi, Disseny, Implementació i Documentació.",
+    rarity: 'common'
   },
   {
     id: 10,
@@ -116,7 +125,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     category: "Desenvolupament",
-    explanation: "L'anàlisi estableix què ha de fer el programari (no com ho ha de fer) i transforma les idees del client en especificacions."
+    explanation: "L'anàlisi estableix què ha de fer el programari (no com ho ha de fer) i transforma les idees del client en especificacions.",
+    rarity: 'rare'
   },
   {
     id: 11,
@@ -124,7 +134,8 @@ export const questions: Question[] = [
     options: ["Anàlisi", "Disseny", "Implementació", "Documentació"],
     correctAnswer: 1,
     category: "Desenvolupament",
-    explanation: "Durant la fase de disseny es crea el conjunt d'algorismes del programa utilitzant diagrames de flux i pseudocodi."
+    explanation: "Durant la fase de disseny es crea el conjunt d'algorismes del programa utilitzant diagrames de flux i pseudocodi.",
+    rarity: 'common'
   },
 
   // Variables i dades
@@ -139,7 +150,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     category: "Variables",
-    explanation: "Una variable és una zona de memòria a la que se li assigna un nom o identificador, on es desa una dada d'un determinat tipus."
+    explanation: "Una variable és una zona de memòria a la que se li assigna un nom o identificador, on es desa una dada d'un determinat tipus.",
+    rarity: 'common'
   },
   {
     id: 13,
@@ -147,7 +159,8 @@ export const questions: Question[] = [
     options: ["int num;", "integer num;", "number num;", "var num;"],
     correctAnswer: 0,
     category: "Variables",
-    explanation: "En Java, una variable de tipus enter es declara amb 'int num;' on 'int' indica el tipus i 'num' és l'identificador."
+    explanation: "En Java, una variable de tipus enter es declara amb 'int num;' on 'int' indica el tipus i 'num' és l'identificador.",
+    rarity: 'rare'
   },
 
   // Diagrames de flux
@@ -157,7 +170,8 @@ export const questions: Question[] = [
     options: ["Rectangle", "Cercle", "Rombe", "Oval"],
     correctAnswer: 2,
     category: "Diagrames",
-    explanation: "El símbol de decisió és un rombe que expressa una comprovació amb resultat cert/fals (SÍ/NO)."
+    explanation: "El símbol de decisió és un rombe que expressa una comprovació amb resultat cert/fals (SÍ/NO).",
+    rarity: 'common'
   },
   {
     id: 15,
@@ -170,7 +184,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 2,
     category: "Diagrames",
-    explanation: "Una norma fonamental és que no es poden encreuar les línies de flux per mantenir la claredat del diagrama."
+    explanation: "Una norma fonamental és que no es poden encreuar les línies de flux per mantenir la claredat del diagrama.",
+    rarity: 'legendary'
   },
   {
     id: 16,
@@ -178,7 +193,8 @@ export const questions: Question[] = [
     options: ["Rectangle", "Paral·lelogram", "Rombe", "Cercle"],
     correctAnswer: 1,
     category: "Diagrames",
-    explanation: "El paral·lelogram s'utilitza per especificar operacions d'entrada (llegir) o sortida (mostrar) de dades."
+    explanation: "El paral·lelogram s'utilitza per especificar operacions d'entrada (llegir) o sortida (mostrar) de dades.",
+    rarity: 'rare'
   },
 
   // Operadors i processos
@@ -188,7 +204,8 @@ export const questions: Question[] = [
     options: ["=", "==", "!=", "=<"],
     correctAnswer: 1,
     category: "Operadors",
-    explanation: "L'operador '==' s'utilitza per comparar igualtat, mentre que '=' es reserva per a operacions d'assignació."
+    explanation: "L'operador '==' s'utilitza per comparar igualtat, mentre que '=' es reserva per a operacions d'assignació.",
+    rarity: 'common'
   },
   {
     id: 18,
@@ -201,7 +218,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 3,
     category: "Operadors",
-    explanation: "Per restar un valor a una variable s'utilitza 'intents = intents - 1', assignant el valor actual menys 1."
+    explanation: "Per restar un valor a una variable s'utilitza 'intents = intents - 1', assignant el valor actual menys 1.",
+    rarity: 'rare'
   },
 
   // Casos pràctics
@@ -216,7 +234,8 @@ export const questions: Question[] = [
     ],
     correctAnswer: 2,
     category: "Operadors",
-    explanation: "L'operador '%' (mòdul) calcula el residu de la divisió entre dos nombres."
+    explanation: "L'operador '%' (mòdul) calcula el residu de la divisió entre dos nombres.",
+    rarity: 'legendary'
   },
   {
     id: 20,
@@ -229,6 +248,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 2,
     category: "Diagrames",
-    explanation: "El símbol oval s'utilitza per indicar l'inici i fi d'un programa o procediment."
+    explanation: "El símbol oval s'utilitza per indicar l'inici i fi d'un programa o procediment.",
+    rarity: 'common'
   }
 ];

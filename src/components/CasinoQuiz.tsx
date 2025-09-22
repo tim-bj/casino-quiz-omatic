@@ -7,6 +7,7 @@ import { questions } from "@/data/questions";
 import { QuizState, QuizStats } from "@/types/quiz";
 import { useToast } from "@/components/ui/use-toast";
 import { Shuffle, Play, RotateCcw, Trophy, Timer, Target } from "lucide-react";
+import LootboxQuestion from "@/components/LootboxQuestion";
 
 const CasinoQuiz = () => {
   const { toast } = useToast();
@@ -31,6 +32,9 @@ const CasinoQuiz = () => {
     timeSpent: 0,
   });
 
+  const [isShowingLootbox, setIsShowingLootbox] = useState(false);
+  const [isRevealing, setIsRevealing] = useState(false);
+
   // Shuffle questions casino-style
   const shuffleQuestions = useCallback(() => {
     const shuffled = [...questions].sort(() => Math.random() - 0.5);
@@ -43,15 +47,15 @@ const CasinoQuiz = () => {
 
   // Timer effect
   useEffect(() => {
-    if (quizState.isGameStarted && !quizState.isGameFinished && quizState.timeLeft > 0) {
+    if (quizState.isGameStarted && !quizState.isGameFinished && quizState.timeLeft > 0 && !isShowingLootbox) {
       const timer = setTimeout(() => {
         setQuizState(prev => ({ ...prev, timeLeft: prev.timeLeft - 1 }));
       }, 1000);
       return () => clearTimeout(timer);
-    } else if (quizState.timeLeft === 0 && !quizState.showResult) {
+    } else if (quizState.timeLeft === 0 && !quizState.showResult && !isShowingLootbox) {
       handleNextQuestion();
     }
-  }, [quizState.timeLeft, quizState.isGameStarted, quizState.isGameFinished]);
+  }, [quizState.timeLeft, quizState.isGameStarted, quizState.isGameFinished, isShowingLootbox]);
 
   const startGame = () => {
     shuffleQuestions();
@@ -65,6 +69,13 @@ const CasinoQuiz = () => {
       isGameStarted: true,
       isGameFinished: false,
     });
+    setIsShowingLootbox(true);
+    setIsRevealing(true);
+    
+    setTimeout(() => {
+      setIsShowingLootbox(false);
+      setIsRevealing(false);
+    }, 4500);
   };
 
   const selectAnswer = (answerIndex: number) => {
@@ -121,12 +132,23 @@ const CasinoQuiz = () => {
         className: finalStats.percentage >= 70 ? "winner-glow" : "",
       });
     } else {
-      setQuizState(prev => ({
-        ...prev,
-        currentQuestionIndex: nextIndex,
-        selectedAnswer: null,
-        timeLeft: 30,
-      }));
+      // Show lootbox for next question
+      setIsShowingLootbox(true);
+      setIsRevealing(true);
+      
+      setTimeout(() => {
+        setQuizState(prev => ({
+          ...prev,
+          currentQuestionIndex: nextIndex,
+          selectedAnswer: null,
+          timeLeft: 30,
+        }));
+      }, 3500);
+      
+      setTimeout(() => {
+        setIsShowingLootbox(false);
+        setIsRevealing(false);
+      }, 4500);
     }
   };
 
@@ -141,7 +163,25 @@ const CasinoQuiz = () => {
       isGameStarted: false,
       isGameFinished: false,
     });
+    setIsShowingLootbox(false);
+    setIsRevealing(false);
   };
+
+  const currentQuestion = shuffledQuestions[quizState.currentQuestionIndex];
+  const progress = ((quizState.currentQuestionIndex + 1) / 20) * 100;
+
+  // Show lootbox animation
+  if (isShowingLootbox && currentQuestion) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <LootboxQuestion 
+          question={currentQuestion}
+          onReveal={() => {}}
+          isRevealing={isRevealing}
+        />
+      </div>
+    );
+  }
 
   if (!quizState.isGameStarted) {
     return (
@@ -176,7 +216,7 @@ const CasinoQuiz = () => {
                   className="w-full"
                 >
                   <Play className="w-6 h-6 mr-2" />
-                  Començar el Joc
+                  Obrir Lootbox
                 </Button>
                 
                 <Button 
@@ -248,7 +288,7 @@ const CasinoQuiz = () => {
                 className="w-full"
               >
                 <RotateCcw className="w-6 h-6 mr-2" />
-                Jugar de Nou
+                Obrir Nova Lootbox
               </Button>
             </div>
 
@@ -265,9 +305,6 @@ const CasinoQuiz = () => {
       </div>
     );
   }
-
-  const currentQuestion = shuffledQuestions[quizState.currentQuestionIndex];
-  const progress = ((quizState.currentQuestionIndex + 1) / 20) * 100;
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
@@ -292,7 +329,7 @@ const CasinoQuiz = () => {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          <div className="slot-machine">
+          <div className="lootbox-reveal">
             <h2 className="text-2xl font-bold mb-6">{currentQuestion.question}</h2>
           </div>
 
@@ -326,7 +363,7 @@ const CasinoQuiz = () => {
 
           {quizState.selectedAnswer !== null && (
             <div className="text-center text-muted-foreground">
-              Passant a la següent pregunta...
+              Preparant la següent lootbox...
             </div>
           )}
         </CardContent>
